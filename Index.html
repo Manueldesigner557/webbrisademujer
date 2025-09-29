@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRISA - Aceites Corporales</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="images/logo-brisa.png" alt="Logo BRISA" class="logo">
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="#" class="active">Inicio</a></li>
+                <li><a href="about.html">Quiénes somos</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#asesor">Quiero ser asesor</a></li>
+                <li><a href="#carrito" class="cart-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+                    </svg>
+                    <span class="cart-count" id="cart-count">0</span>
+                </a></li>
+            </ul>
+        </nav>
+        <div class="mobile-menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="video-background">
+            <video autoplay muted loop playsinline id="hero-video">
+                <source src="images/brisa_hero_content_video.mp4" type="video/mp4">
+                Tu navegador no soporta videos HTML5.
+            </video>
+        </div>
+        <div class="hero-content">           
+            <div class="hero-button">
+                <p>Hidratación, suavidad y calma en cada gota</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="products">
+        <h2>Conoce <strong>nuestros Productos</strong></h2>
+        
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/producto1.png" alt="Aceite Corporal BRISA Manzanilla Serena">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Aceite Corporal Manzanilla Serena</h3>
+                    <p class="product-description">Calma y suavidad para tu piel con extracto natural de manzanilla.</p>
+                    <button class="add-to-cart" onclick="addToCart('Manzanilla Serena')">Agregar al carrito</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/producto2.png" alt="Aceite Corporal BRISA Dulce Durazno">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Aceite Corporal Dulce Durazno</h3>
+                    <p class="product-description">Fragancia romántica que envuelve tu piel con hidratación profunda.</p>
+                    <button class="add-to-cart" onclick="addToCart('Dulce Durazno')">Agregar al carrito</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/producto3.png" alt="Aceite Corporal BRISA Coco Vainilla">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Aceite Corporal Coco Vainilla</h3>
+                    <p class="product-description">Armonía y relajación con el poder calmante de la vainilla.</p>
+                    <button class="add-to-cart" onclick="addToCart('Coco Vainilla')">Agregar al carrito</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/producto4.png" alt="Aceite Corporal BRISA Eucalipto Menta">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Aceite Corporal Eucalipto Menta</h3>
+                    <p class="product-description">Transporta tus sentidos al paraíso con aroma refrescante de la menta.</p>
+                    <button class="add-to-cart" onclick="addToCart('Eucalipto Menta')">Agregar al carrito</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/producto5.png" alt="Aceite Corporal BRISA Uva Silvestre">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Aceite Corporal Uva Silvestre</h3>
+                    <p class="product-description">Dulzura y calidez que envuelve tu piel con un aroma irresistible.</p>
+                    <button class="add-to-cart" onclick="addToCart('Uva Silvestre')">Agregar al carrito</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/producto6.png" alt="Aceite Corporal BRISA Frescura Maracuyá">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Aceite Corporal Frescura Maracuyá</h3>
+                    <p class="product-description">Energía y frescura cítrica que revitaliza tu piel cada día.</p>
+                    <button class="add-to-cart" onclick="addToCart('Frescura Maracuyá')">Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="description">
+        <p>Sumérgete en una experiencia sensorial única con nuestro óleo corporal, una caricia sedosa para tu piel con aromas irresistibles. Hidratación profunda, brillo natural y fragancias envolventes que te acompañan todo el día. Elige tu esencia, despierta tus sentidos y deja que tu piel hable por ti.</p>
+    </section>
+
+    <section class="destacado-manzanilla">
+  <div class="destacado-manzanilla-content">
+    <div class="destacado-manzanilla-text">
+      <h3>Descubre el poder de la manzanilla en nuestro óleo corporal:</h3>
+      <p>hidratación, suavidad y calma en cada gota.<br>¿Lista para consentir tu piel?</p>
+      <button class="destacado-btn">CONOCE MÁS</button>
+    </div>
+    <div class="destacado-manzanilla-img">
+      <img src="images/manzanilla-oleo.png" alt="Aceite corporal con manzanilla">
+    </div>
+  </div>
+</section>
+
+<section class="testimonios">
+  <h2>Lo que <strong>dicen de Nosotros</strong></h2>
+  <div class="testimonios-list">
+    <div class="testimonio-card">
+      <img src="images/testimonio1.jpg" alt="Testimonio 1">
+      <div class="testimonio-text">
+        <p>¡Estoy enamorada de este óleo! La manzanilla deja mi piel suave y con un brillo natural sin sensación grasosa. Brisa de Mujer realmente entiende lo que nuestra piel necesita.</p>
+        <span><strong>Mariana G.</strong></span>
+      </div>
+    </div>
+    <div class="testimonio-card">
+      <img src="images/testimonio2.jpg" alt="Testimonio 2">
+      <div class="testimonio-text">
+        <p>Desde que uso este óleo, mi piel se siente más hidratada y relajada. El aroma es delicioso y perfecto para mi rutina de cuidado. ¡Lo recomiendo al 100%!</p>
+        <span><strong>Laura M.</strong></span>
+      </div>
+    </div>
+    <div class="testimonio-card">
+      <img src="images/testimonio3.jpg" alt="Testimonio 3">
+      <div class="testimonio-text">
+        <p>Me encanta la textura ligera y la sensación de bienestar que deja en mi piel. Además, el aroma a manzanilla es tan relajante que se ha vuelto mi momento favorito del día.</p>
+        <span><strong>Andrea R.</strong></span>
+      </div>
+    </div>
+    <div class="testimonio-card">
+      <img src="images/testimonio4.jpg" alt="Testimonio 4">
+      <div class="testimonio-text">
+        <p>Brisa de Mujer creó el óleo perfecto: nutritivo, delicado y con un aroma sutil que dura horas. Mi piel nunca se había sentido tan radiante.</p>
+        <span><strong>Sofía T.</strong></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="images/logo_brisa-footer.png" alt="Logo BRISA" class="logo">
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="#">Términos y condiciones</a></li>
+                    <li><a href="#">Política de privacidad</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="social-media">
+                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg></a>
+                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 OPIEKA. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script>
+        let cartCount = 0;
+
+        function addToCart(productName) {
+            cartCount++;
+            document.getElementById('cart-count').textContent = cartCount;
+            
+            // Efecto visual del botón
+            const button = event.target;
+            const originalText = button.textContent;
+            button.textContent = '¡Agregado!';
+            button.style.backgroundColor = '#4CAF50';
+            button.disabled = true;
+            
+            // Mostrar notificación
+            showNotification(`${productName} agregado al carrito`);
+            
+            // Restaurar botón después de 2 segundos
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.style.backgroundColor = '#F3A2A5';
+                button.disabled = false;
+            }, 2000);
+        }
+
+        function showNotification(message) {
+            // Crear notificación
+            const notification = document.createElement('div');
+            notification.textContent = message;
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background-color: #4CAF50;
+                color: white;
+                padding: 15px 20px;
+                border-radius: 5px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                z-index: 1000;
+                font-weight: 600;
+                transform: translateX(400px);
+                transition: transform 0.3s ease;
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Animar entrada
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+            
+            // Remover después de 3 segundos
+            setTimeout(() => {
+                notification.style.transform = 'translateX(400px)';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+
+        // Menú móvil
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+            const menu = document.querySelector('.menu');
+            
+            if (mobileToggle && menu) {
+                mobileToggle.addEventListener('click', function() {
+                    menu.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
