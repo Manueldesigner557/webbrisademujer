@@ -1,3 +1,142 @@
+// Menú Hamburguesa
+document.addEventListener('DOMContentLoaded', function() {
+    // Crear botón hamburguesa si no existe
+    const header = document.querySelector('header');
+    const nav = document.querySelector('nav');
+    
+    // Verificar si el botón ya existe
+    let menuToggle = document.querySelector('.menu-toggle');
+    
+    if (!menuToggle) {
+        // Crear el botón hamburguesa
+        menuToggle = document.createElement('button');
+        menuToggle.className = 'menu-toggle';
+        menuToggle.setAttribute('aria-label', 'Menú');
+        menuToggle.innerHTML = `
+            <span></span>
+            <span></span>
+            <span></span>
+        `;
+        
+        // Insertar antes del nav
+        header.insertBefore(menuToggle, nav);
+    }
+    
+    // Toggle del menú
+    menuToggle.addEventListener('click', function() {
+        this.classList.toggle('active');
+        nav.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+    });
+    
+    // Cerrar menú al hacer clic en un enlace
+    const menuLinks = document.querySelectorAll('.menu a');
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            menuToggle.classList.remove('active');
+            nav.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        });
+    });
+    
+    // Cerrar menú al hacer clic en el overlay (fuera del menú)
+    document.addEventListener('click', function(e) {
+        if (nav.classList.contains('active') && 
+            !nav.contains(e.target) && 
+            !menuToggle.contains(e.target)) {
+            menuToggle.classList.remove('active');
+            nav.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        }
+    });
+    
+    // Cerrar menú al cambiar el tamaño de la ventana (si se pasa a desktop)
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            if (window.innerWidth > 768) {
+                menuToggle.classList.remove('active');
+                nav.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            }
+        }, 250);
+    });
+    
+    // Prevenir scroll cuando el menú está abierto
+    const preventScroll = (e) => {
+        if (document.body.classList.contains('menu-open')) {
+            e.preventDefault();
+        }
+    };
+    
+    // Agregar listeners para prevenir scroll en móvil
+    document.addEventListener('touchmove', function(e) {
+        if (document.body.classList.contains('menu-open') && 
+            !nav.contains(e.target)) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+});
+
+// Animación suave para el scroll (opcional, mejora UX)
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#' && document.querySelector(href)) {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            const headerOffset = 100;
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// Actualizar contador del carrito (ejemplo)
+function updateCartCount(count) {
+    const cartCount = document.querySelector('.cart-count');
+    if (cartCount) {
+        cartCount.textContent = count;
+        
+        // Animación cuando cambia el número
+        cartCount.style.transform = 'scale(1.3)';
+        setTimeout(() => {
+            cartCount.style.transform = 'scale(1)';
+        }, 200);
+    }
+}
+
+// Hacer visible el header en scroll (opcional - sticky header mejorado)
+let lastScroll = 0;
+const header = document.querySelector('header');
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    
+    if (currentScroll <= 0) {
+        header.style.transform = 'translateY(0)';
+        return;
+    }
+    
+    // Si hace scroll hacia abajo y ya pasó el header
+    if (currentScroll > lastScroll && currentScroll > 100) {
+        header.style.transform = 'translateY(-100%)';
+    } else {
+        header.style.transform = 'translateY(0)';
+    }
+    
+    lastScroll = currentScroll;
+});
+
+// Transición del header
+header.style.transition = 'transform 0.3s ease';
+// Funcionalidades adicionales al cargar el DOM
 document.addEventListener('DOMContentLoaded', function() {
     // Menú móvil
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
